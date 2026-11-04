@@ -80,36 +80,26 @@ nav {
 }
 .nav-links a:hover {color:white}
 
-.hero {
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(rgba(15,5,35,.25), rgba(15,5,35,.35)),
-    url('astro-background.png') center center / cover no-repeat;
-}
-
-.hero-content {
-  width:100%;
-  padding-top:80px;
-  position:relative;
-  z-index:2;
 }
 
 .symbol {
-  font-size:42px;
+  font-size:48px;
   color:#e5c8ff;
   margin-bottom:28px;
   animation:float 5s ease-in-out infinite;
 }
-.symbol {
-  font-size:42px;
-  color:#e5c8ff;
-  margin-bottom:28px;
-  animation:float 5s ease-in-out infinite;
+
+/* Mobile background adjustment */
+@media (max-width:768px) {
+  .hero {
+    background-position:center center;
+    background-size:cover;
+    min-height:100svh;
+  }
+
+  .hero-content {
+    padding-top:80px;
+  }
 }
 @keyframes float {
   50% {transform:translateY(-12px) rotate(12deg)}
