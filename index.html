@@ -87,11 +87,21 @@ nav {
   text-align:center;
   position:relative;
   overflow:hidden;
+  background:
+    linear-gradient(rgba(15,5,35,.25), rgba(15,5,35,.35)),
+    url('astro-background.png') center center / cover no-repeat;
 }
-.hero-content {width:100%;padding-top:80px}
+
+.hero-content {
+  width:100%;
+  padding-top:80px;
+  position:relative;
+  z-index:2;
+}
+
 .symbol {
   font-size:42px;
-  color:var(--purple);
+  color:#e5c8ff;
   margin-bottom:28px;
   animation:float 5s ease-in-out infinite;
 }
