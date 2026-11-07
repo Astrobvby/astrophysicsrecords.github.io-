@@ -92,11 +92,20 @@ nav {
 /* Mobile background adjustment */
 @media (max-width:768px) {
   .hero {
-    background-position:center center;
-    background-size:cover;
-    min-height:100svh;
-  }
-
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      rgba(15,5,35,.15),
+      rgba(15,5,35,.30)
+    ),
+    url('/astrophysicsrecords.github.io-/astro-background.png') center center / cover no-repeat;
+}
   .hero-content {
     padding-top:80px;
   }
