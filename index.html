@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,295 +15,235 @@
 
 <style>
 :root {
-  --bg:#08070d;
-  --panel:#111019;
-  --white:#f5f3fa;
-  --muted:#92909e;
-  --purple:#9b78ff;
-  --line:rgba(255,255,255,.12);
+  --bg: #08070d;
+  --panel: #111019;
+  --white: #f5f3fa;
+  --muted: #92909e;
+  --purple: #9b78ff;
+  --line: rgba(255,255,255,.12);
 }
 
-* {margin:0;padding:0;box-sizing:border-box}
-html {scroll-behavior:smooth}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background:var(--bg);
-  color:var(--white);
-  font-family:Inter,sans-serif;
-  overflow-x:hidden;
+  background: var(--bg);
+  color: var(--white);
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
 }
 
 body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-1;
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
   background:
     radial-gradient(ellipse at 75% 20%,rgba(103,65,180,.2),transparent 40%),
     radial-gradient(ellipse at 15% 75%,rgba(56,67,125,.13),transparent 40%);
-  animation:space 12s ease-in-out infinite alternate;
-}
-@keyframes space {
-  from {transform:scale(1);opacity:.65}
-  to {transform:scale(1.15);opacity:1}
+  animation: space 12s ease-in-out infinite alternate;
 }
 
-a {color:inherit;text-decoration:none}
-.container {width:min(1160px,88%);margin:auto}
+@keyframes space {
+  from { transform: scale(1); opacity: .65; }
+  to { transform: scale(1.15); opacity: 1; }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1160px,88%);
+  margin: auto;
+}
+
+/* NAVIGATION */
 
 nav {
-  position:fixed;
-  top:0;left:0;width:100%;
-  z-index:10;
-  padding:23px 0;
-  background:rgba(8,7,13,.72);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 23px 0;
+  background: rgba(8,7,13,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
 }
+
 .nav-inner {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .logo {
-  font-family:"Space Grotesk",sans-serif;
-  font-weight:700;
-  letter-spacing:2px;
-  font-size:15px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 15px;
 }
-.logo span {color:var(--purple)}
-.nav-links {display:flex;gap:30px}
+
+.logo span {
+  color: var(--purple);
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
 .nav-links a {
-  color:var(--muted);
-  font-size:11px;
-  letter-spacing:1.5px;
-  transition:.3s;
-}
-.nav-links a:hover {color:white}
-
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  transition: .3s;
 }
 
-.symbol {
-  font-size:48px;
-  color:#e5c8ff;
-  margin-bottom:28px;
-  animation:float 5s ease-in-out infinite;
+.nav-links a:hover {
+  color: white;
 }
 
-/* Mobile background adjustment */
-@media (max-width:768px) {
-  .hero {
-  background-image: url('/astrophysicsrecords.github.io-/astrobvby-hero.png');
-  background-position: center;
+/* HERO BACKGROUND */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  background-image: url('./astrobvby-hero.png');
+  background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100svh;
-}
-  .hero-content {
-    padding-top:80px;
-  }
-}
-@keyframes float {
-  50% {transform:translateY(-12px) rotate(12deg)}
-}
-.eyebrow {
-  font-size:10px;
-  letter-spacing:5px;
-  color:var(--purple);
-  margin-bottom:24px;
-}
-.hero h1 {
-  font-family:"Space Grotesk",sans-serif;
-  font-size:clamp(42px,8.5vw,112px);
-  line-height:.95;
-  letter-spacing:-5px;
-  font-weight:700;
-  background:linear-gradient(110deg,#fff 15%,#a7a0b9 48%,#8064bd 85%);
-  background-clip:text;
-  -webkit-background-clip:text;
-  color:transparent;
-  animation:appear 1.3s ease both;
-}
-@keyframes appear {
-  from {opacity:0;transform:translateY(35px)}
-  to {opacity:1;transform:translateY(0)}
-}
-.hero p {
-  color:var(--muted);
-  font-size:14px;
-  letter-spacing:2px;
-  margin:28px 0 38px;
-}
-.button {
-  display:inline-block;
-  border:1px solid rgba(174,145,255,.65);
-  padding:15px 27px;
-  font-size:10px;
-  letter-spacing:2px;
-  transition:.3s;
-}
-.button:hover {
-  background:var(--purple);
-  color:#08070d;
-  box-shadow:0 0 35px rgba(155,120,255,.3);
-}
-.scroll {
-  position:absolute;
-  bottom:32px;
-  left:50%;
-  transform:translateX(-50%);
-  color:var(--muted);
-  font-size:9px;
-  letter-spacing:3px;
 }
 
-section {padding:115px 0}
+/* The artwork already contains its own ASTROBVBY title and tagline */
+.hero-content,
+.hero .scroll {
+  display: none;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+  padding: 115px 0;
+}
+
 .section-label {
-  color:var(--purple);
-  font-size:10px;
-  letter-spacing:4px;
-  margin-bottom:20px;
+  color: var(--purple);
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
 }
+
 .section-title {
-  font-family:"Space Grotesk",sans-serif;
-  font-size:clamp(32px,5vw,58px);
-  letter-spacing:-2px;
-  margin-bottom:25px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(32px,5vw,58px);
+  letter-spacing: -2px;
+  margin-bottom: 25px;
 }
+
+/* ABOUT */
+
 .about-grid {
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:70px;
-  align-items:center;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 70px;
+  align-items: center;
 }
+
 .about-copy {
-  color:var(--muted);
-  line-height:2;
-  font-size:14px;
-  max-width:620px;
+  color: var(--muted);
+  line-height: 2;
+  font-size: 14px;
+  max-width: 620px;
 }
+
 .about-art {
-  min-height:310px;
-  display:grid;
-  place-items:center;
-  border:1px solid var(--line);
+  min-height: 310px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
   background:
     radial-gradient(circle,rgba(137,97,230,.28),transparent 55%),
     linear-gradient(145deg,#171323,#090810);
-  font-size:100px;
-  color:#b6a0ff;
-  text-shadow:0 0 55px #956bff;
+  font-size: 100px;
+  color: #b6a0ff;
+  text-shadow: 0 0 55px #956bff;
 }
+
+/* ARTISTS */
 
 .artist-box {
-  border:1px solid var(--line);
-  padding:55px 30px;
-  text-align:center;
-  background:linear-gradient(140deg,rgba(255,255,255,.035),transparent);
+  border: 1px solid var(--line);
+  padding: 55px 30px;
+  text-align: center;
+  background: linear-gradient(140deg,rgba(255,255,255,.035),transparent);
 }
+
+.symbol {
+  font-size: 48px;
+  color: #e5c8ff;
+  margin-bottom: 28px;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-12px) rotate(12deg); }
+}
+
 .artist-box p {
-  color:var(--muted);
-  font-size:13px;
-  line-height:2;
-  margin:15px auto 28px;
-  max-width:520px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+  margin: 15px auto 28px;
+  max-width: 520px;
 }
+
+/* BUTTONS */
+
+.button {
+  display: inline-block;
+  border: 1px solid rgba(174,145,255,.65);
+  padding: 15px 27px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  transition: .3s;
+}
+
+.button:hover {
+  background: var(--purple);
+  color: #08070d;
+  box-shadow: 0 0 35px rgba(155,120,255,.3);
+}
+
+/* CATALOGUE */
 
 .release-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
 }
+
 .release {
-  border:1px solid var(--line);
-  background:var(--panel);
-  transition:.35s;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  transition: .35s;
+  overflow: hidden;
 }
+
 .release:hover {
-  transform:translateY(-7px);
-  border-color:rgba(155,120,255,.65);
-}
-.cover {
-  aspect-ratio:1;
-  display:grid;
-  place-items:center;
-  background:
-    radial-gradient(circle at 50% 45%,rgba(164,125,255,.45),transparent 35%),
-    linear-gradient(145deg,#29213d,#0a0911 75%);
-  font-size:52px;
-  color:#d2c2ff;
-}
-.release-info {padding:20px}
-.release-info small {
-  color:var(--purple);
-  letter-spacing:2px;
-  font-size:9px;
-}
-.release-info h3 {
-  margin-top:9px;
-  font-size:15px;
-}
-.release-info p {
-  color:var(--muted);
-  font-size:11px;
-  margin-top:7px;
-}
-.cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.release {
-  text-decoration: none;
-  color: inherit;
-}
-.join {
-  text-align:center;
-  background:linear-gradient(180deg,transparent,rgba(119,83,190,.1),transparent);
-}
-.join p {
-  color:var(--muted);
-  font-size:14px;
-  line-height:2;
-  max-width:540px;
-  margin:0 auto 30px;
-}
-
-footer {
-  border-top:1px solid var(--line);
-  padding:35px 0;
-}
-.footer-inner {
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  flex-wrap:wrap;
-}
-footer p,footer a {
-  color:var(--muted);
-  font-size:10px;
-  letter-spacing:1px;
-}
-footer a:hover {color:white}
-
-@media(max-width:700px) {
-  .nav-links {gap:12px}
-  .nav-links a {font-size:9px}
-  .logo {font-size:12px}
-  .hero h1 {letter-spacing:-2px}
-  .about-grid {grid-template-columns:1fr;gap:30px}
-  .release-grid {grid-template-columns:1fr}
-  section {padding:85px 0}
-  .about-art {min-height:220px}
-}
-.release img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
+  transform: translateY(-7px);
+  border-color: rgba(155,120,255,.65);
 }
 
 .release a {
@@ -310,8 +251,117 @@ footer a:hover {color:white}
   overflow: hidden;
 }
 
+.release img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+
 .release a:hover img {
   transform: scale(1.04);
+}
+
+.release-info {
+  padding: 20px;
+}
+
+.release-info small {
+  color: var(--purple);
+  letter-spacing: 2px;
+  font-size: 9px;
+}
+
+.release-info h3 {
+  margin-top: 9px;
+  font-size: 15px;
+}
+
+.release-info p {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 7px;
+}
+
+/* CONTACT */
+
+.join {
+  text-align: center;
+  background: linear-gradient(180deg,transparent,rgba(119,83,190,.1),transparent);
+}
+
+.join p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+  max-width: 540px;
+  margin: 0 auto 30px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 35px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+footer p,
+footer a {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+footer a:hover {
+  color: white;
+}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+  .nav-inner {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-links a {
+    font-size: 9px;
+  }
+
+  .logo {
+    font-size: 13px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .release-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 85px 0;
+  }
+
+  .about-art {
+    min-height: 220px;
+  }
 }
 </style>
 </head>
@@ -321,7 +371,9 @@ footer a:hover {color:white}
 <nav>
   <div class="container nav-inner">
     <a class="logo" href="#home">ASTROPHYSICS<span>®</span></a>
+
     <div class="nav-links">
+      <a href="#home">HOME</a>
       <a href="#about">ABOUT</a>
       <a href="#artists">ARTISTS</a>
       <a href="#releases">MUSIC</a>
@@ -330,22 +382,17 @@ footer a:hover {color:white}
   </div>
 </nav>
 
-<header class="hero" id="home">
-  <div class="hero-content">
-    <div class="symbol">✦</div>
-    <div class="eyebrow">INDEPENDENT MUSIC LABEL</div>
-    <h1>ASTROPHYSICS<br>RECORDS</h1>
-    <p>BEYOND SOUND. BEYOND BOUNDARIES.</p>
-    <a class="button" href="#about">DISCOVER THE LABEL ↗</a>
-  </div>
-  <div class="scroll">SCROLL TO EXPLORE ↓</div>
-</header>
+<!-- HERO: IMAGE IS THE BACKGROUND -->
+<header class="hero" id="home"></header>
+
+<!-- ABOUT -->
 
 <section id="about">
   <div class="container about-grid">
     <div>
       <div class="section-label">01 / THE LABEL</div>
       <h2 class="section-title">A universe of<br>its own.</h2>
+
       <p class="about-copy">
         Astrophysics Records is an independent music label
         built around creativity, individuality and sound.
@@ -356,27 +403,34 @@ footer a:hover {color:white}
         Different voices. Different worlds. One universe.
       </p>
     </div>
+
     <div class="about-art">✦</div>
   </div>
 </section>
+
+<!-- ARTISTS -->
 
 <section id="artists">
   <div class="container">
     <div class="section-label">02 / OUR UNIVERSE</div>
     <h2 class="section-title">Artists & collaborators.</h2>
+
     <div class="artist-box">
       <div class="symbol">✧</div>
       <h3>The roster is expanding.</h3>
+
       <p>
         We're building a home for distinctive voices,
         independent creatives, rappers and R&B artists.
         Your sound could be part of this universe.
       </p>
+
       <a class="button" href="#contact">JOIN THE UNIVERSE ↗</a>
     </div>
   </div>
 </section>
 
+<!-- CATALOGUE -->
 
 <section id="releases">
   <div class="container">
@@ -390,6 +444,7 @@ footer a:hover {color:white}
           <img src="chess-call-cover.png"
                alt="CHESS CALL album artwork">
         </a>
+
         <div class="release-info">
           <small>COMING SOON · ALBUM</small>
           <h3>CHESS CALL</h3>
@@ -399,10 +454,11 @@ footer a:hover {color:white}
 
       <article class="release">
         <a href="https://www.youtube.com/@Bvbyshouse/featured"
-           target="_blank" rel="noopener">
+           target="_blank" rel="noopener noreferrer">
           <img src="vstrobvby-butterfly.png"
                alt="VSTROBVBY butterfly artwork">
         </a>
+
         <div class="release-info">
           <small>ELECTRONIC · HOUSE</small>
           <h3>VSTROBVBY</h3>
@@ -412,10 +468,11 @@ footer a:hover {color:white}
 
       <article class="release">
         <a href="https://www.youtube.com/channel/UC50twYKvs8nEsLLTFCoNopQ"
-           target="_blank" rel="noopener">
+           target="_blank" rel="noopener noreferrer">
           <img src="astrobvby-cover.png"
                alt="ASTROBVBY artwork">
         </a>
+
         <div class="release-info">
           <small>HIP-HOP · ARTIST</small>
           <h3>ASTROBVBY</h3>
@@ -425,10 +482,11 @@ footer a:hover {color:white}
 
       <article class="release">
         <a href="https://www.youtube.com/@prodbvby"
-           target="_blank" rel="noopener">
+           target="_blank" rel="noopener noreferrer">
           <img src="prodbvby-cover.png"
                alt="ProdBvby producer artwork">
         </a>
+
         <div class="release-info">
           <small>PRODUCTION · BEATS</small>
           <h3>PRODBVBY</h3>
@@ -439,3 +497,32 @@ footer a:hover {color:white}
     </div>
   </div>
 </section>
+
+<!-- CONTACT -->
+
+<section class="join" id="contact">
+  <div class="container">
+    <div class="section-label">04 / CONNECT</div>
+    <h2 class="section-title">Your sound. Your universe.</h2>
+
+    <p>
+      Are you an artist, producer or creative looking
+      for a new space to grow? Connect with Astrophysics Records.
+    </p>
+
+    <a class="button" href="mailto:YOUR_EMAIL_HERE">
+      CONTACT THE LABEL ↗
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <p>© 2026 ASTROPHYSICS RECORDS</p>
+    <p>INDEPENDENT SOUND. INFINITE POSSIBILITIES.</p>
+    <a href="#home">BACK TO TOP ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
