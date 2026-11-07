@@ -76,9 +76,9 @@ nav {
   width: 100%;
   z-index: 10;
   padding: 23px 0;
-  background: rgba(8,7,13,.88);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(8,7,13,.22);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
 .nav-inner {
@@ -121,11 +121,22 @@ nav {
   width: 100%;
   min-height: 100svh;
   background-image: url('./astrobvby-hero.png');
-  background-position: center center;
+  background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
 }
-
+  .hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 65%,
+    rgba(8,7,13,.35) 82%,
+    #08070d 100%
+  );
+}
 /* The artwork already contains its own ASTROBVBY title and tagline */
 .hero-content,
 .hero .scroll {
