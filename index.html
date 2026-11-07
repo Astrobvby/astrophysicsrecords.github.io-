@@ -92,19 +92,11 @@ nav {
 /* Mobile background adjustment */
 @media (max-width:768px) {
   .hero {
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(
-      rgba(15,5,35,.15),
-      rgba(15,5,35,.30)
-    ),
-    url('/astrophysicsrecords.github.io-/astro-background.png') center center / cover no-repeat;
+  background-image: url('/astrophysicsrecords.github.io-/astrobvby-hero.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100svh;
 }
   .hero-content {
     padding-top:80px;
@@ -305,6 +297,22 @@ footer a:hover {color:white}
   section {padding:85px 0}
   .about-art {min-height:220px}
 }
+.release img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.release a {
+  display: block;
+  overflow: hidden;
+}
+
+.release a:hover img {
+  transform: scale(1.04);
+}
 </style>
 </head>
 
@@ -373,63 +381,60 @@ footer a:hover {color:white}
 <section id="releases">
   <div class="container">
     <div class="section-label">03 / THE CATALOGUE</div>
-    <h2 class="section-title">Three worlds. One universe.</h2>
+    <h2 class="section-title">Explore the universe.</h2>
 
     <div class="release-grid">
 
-      <!-- CHESS CALL -->
       <article class="release">
-        <div class="cover">
-          <img src="chess-call.jpg" alt="CHESS CALL album artwork">
-        </div>
+        <a href="#contact">
+          <img src="chess-call-cover.png"
+               alt="CHESS CALL album artwork">
+        </a>
         <div class="release-info">
-          <small>COMING SOON · UPCOMING ALBUM</small>
+          <small>COMING SOON · ALBUM</small>
           <h3>CHESS CALL</h3>
-          <p>ASTROBVBY · An upcoming album</p>
+          <p>ASTROBVBY · Upcoming album</p>
         </div>
       </article>
 
-      <!-- VSTROBVBY -->
-      <a class="release"
-         href="https://www.youtube.com/@Bvbyshouse/featured"
-         target="_blank" rel="noopener noreferrer">
-        <div class="cover">
-          <div class="symbol">✦</div>
-        </div>
+      <article class="release">
+        <a href="https://www.youtube.com/@Bvbyshouse/featured"
+           target="_blank" rel="noopener">
+          <img src="vstrobvby-butterfly.png"
+               alt="VSTROBVBY butterfly artwork">
+        </a>
         <div class="release-info">
           <small>ELECTRONIC · HOUSE</small>
           <h3>VSTROBVBY</h3>
-          <p>Electronic projects · Explore on YouTube ↗</p>
+          <p>Electronic music · Explore releases</p>
         </div>
-      </a>
+      </article>
 
-      <!-- ASTROBVBY -->
-      <a class="release"
-         href="https://www.youtube.com/channel/UC50twYKvs8nEsLLTFCoNopQ"
-         target="_blank" rel="noopener noreferrer">
-        <div class="cover">
-          <div class="symbol">◈</div>
-        </div>
+      <article class="release">
+        <a href="https://www.youtube.com/channel/UC50twYKvs8nEsLLTFCoNopQ"
+           target="_blank" rel="noopener">
+          <img src="astrobvby-cover.png"
+               alt="ASTROBVBY artwork">
+        </a>
         <div class="release-info">
-          <small>ARTIST PROJECTS · HIP-HOP</small>
+          <small>HIP-HOP · ARTIST</small>
           <h3>ASTROBVBY</h3>
-          <p>Music and artist archive · YouTube ↗</p>
+          <p>Music · Artist archive</p>
         </div>
-      </a>
+      </article>
 
-      <!-- PROD BVBY -->
-      <a class="release"
-         href="https://www.youtube.com/@prodbvby"
-         target="_blank" rel="noopener noreferrer">
-        <div class="cover">
-          <div class="symbol">✧</div>
-        </div>
+      <article class="release">
+        <a href="https://www.youtube.com/@prodbvby"
+           target="_blank" rel="noopener">
+          <img src="prodbvby-cover.png"
+               alt="ProdBvby producer artwork">
+        </a>
         <div class="release-info">
-          <small>BEATS · PRODUCTIONS</small>
-          <h3>PROD BVBY</h3>
-          <p>Beats, songs and releases · YouTube ↗</p>
+          <small>PRODUCTION · BEATS</small>
+          <h3>PRODBVBY</h3>
+          <p>Beats · Songs · Releases</p>
         </div>
-      </a>
+      </article>
 
     </div>
   </div>
