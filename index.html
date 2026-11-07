@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#08070d">
-<meta name="description" content="ASTROBVBY — Enter a universe of music, creativity, art and independent projects.">
+<meta name="description" content="ASTROBVBY — An independent creative universe of music, art, projects and culture.">
 <title>ASTROBVBY | Enter the Universe</title>
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
@@ -100,7 +100,7 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 22px;
 }
 
 .nav-links a {
@@ -114,7 +114,7 @@ nav {
   color: white;
 }
 
-/* HERO BACKGROUND */
+/* HERO */
 
 .hero {
   position: relative;
@@ -166,7 +166,7 @@ section {
   margin-bottom: 25px;
 }
 
-/* ABOUT */
+/* ABOUT + VIDEO */
 
 .about-grid {
   display: grid;
@@ -182,20 +182,23 @@ section {
   max-width: 620px;
 }
 
-.about-art {
-  min-height: 310px;
-  display: grid;
-  place-items: center;
+.about-video {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
   border: 1px solid var(--line);
-  background:
-    radial-gradient(circle,rgba(137,97,230,.28),transparent 55%),
-    linear-gradient(145deg,#171323,#090810);
-  font-size: 100px;
-  color: #b6a0ff;
-  text-shadow: 0 0 55px #956bff;
+  background: #111019;
+  box-shadow: 0 20px 70px rgba(0,0,0,.35);
 }
 
-/* PROJECT WORLDS */
+.about-video video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* CREATIVE WORLDS */
 
 .world-grid {
   display: grid;
@@ -317,32 +320,59 @@ section {
 
 /* MERCH */
 
-.merch-panel {
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.merch-item {
   border: 1px solid var(--line);
-  padding: 65px 30px;
-  text-align: center;
-  background:
-    radial-gradient(ellipse at center,rgba(137,97,230,.15),transparent 65%),
-    linear-gradient(145deg,#171323,#090810);
+  background: var(--panel);
+  overflow: hidden;
+  transition: .35s;
 }
 
-.merch-panel .symbol {
-  font-size: 48px;
-  color: #c8b5ff;
-  margin-bottom: 22px;
-  animation: float 5s ease-in-out infinite;
+.merch-item:hover {
+  transform: translateY(-7px);
+  border-color: rgba(155,120,255,.65);
 }
 
-@keyframes float {
-  50% { transform: translateY(-12px) rotate(12deg); }
+.merch-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  display: block;
+  background: #111019;
+  padding: 12px;
 }
 
-.merch-panel p {
+.merch-info {
+  padding: 22px;
+}
+
+.merch-info small {
+  color: var(--purple);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.merch-info h3 {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.merch-price {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.merch-note {
   color: var(--muted);
-  font-size: 13px;
-  line-height: 2;
-  max-width: 520px;
-  margin: 0 auto 25px;
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 9px;
 }
 
 /* CONNECT */
@@ -421,7 +451,7 @@ footer a:hover {
   }
 
   .nav-links {
-    gap: 13px;
+    gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -440,16 +470,13 @@ footer a:hover {
   }
 
   .world-grid,
-  .release-grid {
+  .release-grid,
+  .merch-grid {
     grid-template-columns: 1fr;
   }
 
   section {
     padding: 85px 0;
-  }
-
-  .about-art {
-    min-height: 220px;
   }
 }
 </style>
@@ -476,10 +503,11 @@ footer a:hover {
 
 <header class="hero" id="home"></header>
 
-<!-- ABOUT -->
+<!-- ABOUT + VIDEO -->
 
 <section id="about">
   <div class="container about-grid">
+
     <div>
       <div class="section-label">01 / THE UNIVERSE</div>
       <h2 class="section-title">Beyond one identity.<br>Beyond one sound.</h2>
@@ -501,11 +529,23 @@ footer a:hover {
       </p>
     </div>
 
-    <div class="about-art">✦</div>
+    <div class="about-video">
+      <video
+        src="./astrobvby-universe.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        controls
+        preload="metadata">
+        Your browser does not support HTML video.
+      </video>
+    </div>
+
   </div>
 </section>
 
-<!-- UNIVERSE -->
+<!-- CREATIVE WORLDS -->
 
 <section id="worlds">
   <div class="container">
@@ -572,7 +612,7 @@ footer a:hover {
       <article class="release">
         <a href="https://www.youtube.com/@Bvbyshouse/featured"
            target="_blank" rel="noopener noreferrer">
-          <img src="vstrobvby-butterfly.png" alt="VSTROBVBY artwork">
+          <img src="vstrobvby-cover.png" alt="VSTROBVBY artwork">
         </a>
         <div class="release-info">
           <small>ELECTRONIC · HOUSE</small>
@@ -603,16 +643,43 @@ footer a:hover {
     <div class="section-label">04 / THE COLLECTION</div>
     <h2 class="section-title">Wear the universe.</h2>
 
-    <div class="merch-panel">
-      <div class="symbol">✧</div>
-      <h3>ASTROBVBY MERCH</h3>
-      <p>
-        A future collection inspired by the universe.
-        Clothing, visual identity and pieces made
-        for those who are part of the journey.
-      </p>
-      <span class="button">COMING SOON</span>
+    <div class="merch-grid">
+
+      <article class="merch-item">
+        <img src="men-zip.png" alt="ASTROBVBY men's zip">
+        <div class="merch-info">
+          <small>APPAREL · MEN</small>
+          <h3>ASTROBVBY MEN'S ZIP</h3>
+          <div class="merch-price">$200</div>
+          <p class="merch-note">Part of the upcoming ASTROBVBY collection.</p>
+        </div>
+      </article>
+
+      <article class="merch-item">
+        <img src="women-zip.png" alt="ASTROBVBY women's zip">
+        <div class="merch-info">
+          <small>APPAREL · WOMEN</small>
+          <h3>ASTROBVBY WOMEN'S ZIP</h3>
+          <div class="merch-price">$200</div>
+          <p class="merch-note">Part of the upcoming ASTROBVBY collection.</p>
+        </div>
+      </article>
+
+      <article class="merch-item">
+        <img src="wussup-fam-sticker.png" alt="Wussup Fam sticker">
+        <div class="merch-info">
+          <small>ACCESSORIES · STICKER</small>
+          <h3>WUSSUP FAM STICKER</h3>
+          <div class="merch-price">$20</div>
+          <p class="merch-note">A little piece of the ASTROBVBY universe.</p>
+        </div>
+      </article>
+
     </div>
+
+    <p class="about-copy" style="text-align:center;margin:30px auto 0;">
+      Collection preview · Availability and ordering details coming soon.
+    </p>
   </div>
 </section>
 
@@ -630,6 +697,7 @@ footer a:hover {
     </p>
 
     <div class="social-links">
+
       <a href="https://www.instagram.com/astro2b/"
          target="_blank" rel="noopener noreferrer">
         INSTAGRAM ↗
@@ -639,6 +707,12 @@ footer a:hover {
          target="_blank" rel="noopener noreferrer">
         FACEBOOK ↗
       </a>
+
+      <a href="https://x.com/AstroBvby1"
+         target="_blank" rel="noopener noreferrer">
+        X / TWITTER ↗
+      </a>
+
     </div>
   </div>
 </section>
