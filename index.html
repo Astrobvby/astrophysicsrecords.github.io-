@@ -5,38 +5,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#08070d">
-<meta name="description" content="ASTROBVBY — An independent creative universe of music, art, projects and culture.">
-<title>ASTROBVBY | Enter the Universe</title>
+<meta name="description" content="ASTROBVBY — An independent creative universe across music, sound, electronic culture and design.">
+<title>ASTROBVBY | Creative Universe</title>
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='85'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
-
+<link rel="icon" href="./astrobvby-hero.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
   --bg: #08070d;
   --panel: #111019;
+  --panel-light: #171522;
   --white: #f5f3fa;
   --muted: #92909e;
   --purple: #9b78ff;
   --line: rgba(255,255,255,.12);
-}
-.about-video {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 20px;
-  position: relative;
+  --radius: 22px;
 }
 
-.about-video video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-}
 * {
   margin: 0;
   padding: 0;
@@ -45,30 +33,15 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 30px;
 }
 
 body {
   background: var(--bg);
   color: var(--white);
-  font-family: Inter, sans-serif;
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.6;
   overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background:
-    radial-gradient(ellipse at 75% 20%,rgba(103,65,180,.2),transparent 40%),
-    radial-gradient(ellipse at 15% 75%,rgba(56,67,125,.13),transparent 40%);
-  animation: space 12s ease-in-out infinite alternate;
-}
-
-@keyframes space {
-  from { transform: scale(1); opacity: .65; }
-  to { transform: scale(1.15); opacity: 1; }
 }
 
 a {
@@ -76,418 +49,533 @@ a {
   text-decoration: none;
 }
 
+img, video {
+  max-width: 100%;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .container {
-  width: min(1160px,88%);
+  width: min(1160px, 90%);
   margin: auto;
 }
 
-/* NAVIGATION */
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  padding: 23px 0;
-  background: rgba(8,7,13,.22);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255,255,255,.12);
+section {
+  padding: 110px 0;
 }
 
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-family: "Space Grotesk", sans-serif;
+.section-label {
+  color: var(--purple);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
   font-weight: 700;
-  letter-spacing: 2px;
+}
+
+.section-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  color: var(--muted);
+  max-width: 620px;
   font-size: 15px;
 }
 
-.logo span {
+.accent {
   color: var(--purple);
 }
 
-.nav-links {
-  display: flex;
-  gap: 22px;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 22px;
+  border: 1px solid rgba(155,120,255,.65);
+  border-radius: 50px;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: .3s ease;
 }
 
-.nav-links a {
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  transition: .3s;
+.btn:hover {
+  background: var(--purple);
+  color: #08070d;
+  transform: translateY(-3px);
 }
 
-.nav-links a:hover {
-  color: white;
-}
-
-/* HERO */
+/* HERO — navigation lives over the hero image */
 
 .hero {
-  position: relative;
-  width: 100%;
   min-height: 100svh;
-  background-image: url('./astrobvby-hero.png');
-  background-position: center top;
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  background:
+    linear-gradient(180deg, rgba(8,7,13,.38), rgba(8,7,13,.04) 45%, #08070d 100%),
+    url("./astrobvby-hero.png") center center / cover no-repeat;
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
+  background: radial-gradient(circle at 50% 40%, transparent 20%, rgba(8,7,13,.25) 100%);
   pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    transparent 65%,
-    rgba(8,7,13,.35) 82%,
-    #08070d 100%
-  );
 }
 
-/* Artwork contains its own title */
-
-.hero-content,
-.hero .scroll {
-  display: none;
+.hero-nav {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
 }
 
-/* GENERAL SECTIONS */
-
-section {
-  padding: 115px 0;
-}
-
-.section-label {
-  color: var(--purple);
-  font-size: 10px;
-  letter-spacing: 4px;
-  margin-bottom: 20px;
-}
-
-.section-title {
+.hero-logo {
   font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(32px,5vw,58px);
-  letter-spacing: -2px;
-  margin-bottom: 25px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.hero-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.hero-links a {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.88);
+  transition: .25s ease;
+}
+
+.hero-links a:hover {
+  color: var(--purple);
+}
+
+.hero-bottom {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 5% 65px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.hero-note {
+  color: rgba(255,255,255,.72);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--purple);
+  padding-bottom: 8px;
+  transition: .3s ease;
+}
+
+.hero-cta:hover {
+  color: var(--purple);
 }
 
 /* ABOUT + VIDEO */
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 70px;
+  grid-template-columns: 1fr .9fr;
   align-items: center;
+  gap: 65px;
 }
 
-.about-copy {
+.about-copy p {
   color: var(--muted);
-  line-height: 2;
-  font-size: 14px;
-  max-width: 620px;
+  font-size: 15px;
+  margin-bottom: 18px;
+  max-width: 540px;
 }
 
-<div class="about-video">
-  <video
-    src="./astrobvby-universe.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    disablepictureinpicture
-    controlslist="nodownload noplaybackrate noremoteplayback">
-  </video>
-</div>
-  
-/* CREATIVE WORLDS */
+.about-video {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1 / 1;
+  justify-self: end;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: 0 25px 80px rgba(0,0,0,.35);
+}
+
+.about-video video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* EXPLORE WORLDS — horizontal cards */
+
+.worlds {
+  background: linear-gradient(180deg, #0b0911, #100d18 50%, #08070d);
+}
 
 .world-grid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 45px;
 }
 
 .world-card {
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  min-height: 290px;
   border: 1px solid var(--line);
-  background: linear-gradient(140deg,rgba(255,255,255,.045),transparent);
-  padding: 38px 28px;
-  min-height: 245px;
-  transition: .35s;
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, #191522, #0e0c14);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: .35s ease;
 }
 
 .world-card:hover {
   transform: translateY(-7px);
-  border-color: rgba(155,120,255,.65);
+  border-color: rgba(155,120,255,.6);
+  background: linear-gradient(145deg, #211a31, #100d18);
 }
 
-.world-symbol {
-  font-size: 35px;
-  color: #c8b5ff;
-  margin-bottom: 25px;
-}
-
-.world-card small {
+.world-number {
   color: var(--purple);
-  font-size: 9px;
-  letter-spacing: 2px;
+  font-size: 11px;
+  letter-spacing: 3px;
 }
 
 .world-card h3 {
   font-family: "Space Grotesk", sans-serif;
-  font-size: 22px;
-  margin: 12px 0;
+  font-size: clamp(22px, 2.3vw, 30px);
+  letter-spacing: -1px;
+  margin: 20px 0 10px;
 }
 
 .world-card p {
   color: var(--muted);
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: 13px;
+  max-width: 300px;
 }
 
-/* BUTTONS */
-
-.button {
-  display: inline-block;
-  border: 1px solid rgba(174,145,255,.65);
-  padding: 15px 27px;
-  font-size: 10px;
+.world-link {
+  margin-top: 28px;
+  font-size: 11px;
   letter-spacing: 2px;
-  transition: .3s;
-}
-
-.button:hover {
-  background: var(--purple);
-  color: #08070d;
-  box-shadow: 0 0 35px rgba(155,120,255,.3);
+  text-transform: uppercase;
+  color: var(--purple);
 }
 
 /* MUSIC */
 
-.release-grid {
+.music-grid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 42px;
 }
 
-.release {
-  border: 1px solid var(--line);
+.music-card {
   background: var(--panel);
-  transition: .35s;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
   overflow: hidden;
+  transition: .3s ease;
 }
 
-.release:hover {
-  transform: translateY(-7px);
-  border-color: rgba(155,120,255,.65);
+.music-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(155,120,255,.5);
 }
 
-.release a {
-  display: block;
-  overflow: hidden;
-}
-
-.release img {
+.music-card img {
   width: 100%;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
   display: block;
-  transition: transform .4s ease;
+  object-fit: cover;
+  background: #171420;
 }
 
-.release a:hover img {
-  transform: scale(1.04);
+.music-info {
+  padding: 22px;
 }
 
-.release-info {
-  padding: 20px;
+.music-info h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 21px;
+  margin-bottom: 5px;
 }
 
-.release-info small {
-  color: var(--purple);
-  letter-spacing: 2px;
-  font-size: 9px;
-}
-
-.release-info h3 {
-  margin-top: 9px;
-  font-size: 15px;
-}
-
-.release-info p {
+.music-info p {
   color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 17px;
+}
+
+.text-link {
+  color: var(--purple);
   font-size: 11px;
-  margin-top: 7px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 /* MERCH */
 
+.merch {
+  background: #0c0a12;
+}
+
 .merch-grid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 42px;
 }
 
-.merch-item {
+.merch-card {
+  overflow: hidden;
+  border-radius: var(--radius);
   border: 1px solid var(--line);
   background: var(--panel);
-  overflow: hidden;
-  transition: .35s;
+  transition: .3s ease;
 }
 
-.merch-item:hover {
-  transform: translateY(-7px);
-  border-color: rgba(155,120,255,.65);
+.merch-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(155,120,255,.5);
 }
 
-.merch-item img {
+.merch-card img {
+  display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
-  object-fit: contain;
-  display: block;
-  background: #111019;
-  padding: 12px;
+  object-fit: cover;
+  background: #171420;
 }
 
 .merch-info {
-  padding: 22px;
-}
-
-.merch-info small {
-  color: var(--purple);
-  font-size: 9px;
-  letter-spacing: 2px;
+  padding: 20px;
 }
 
 .merch-info h3 {
-  margin: 10px 0;
-  font-size: 16px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 19px;
+  margin-bottom: 5px;
 }
 
 .merch-price {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 22px;
+  color: var(--purple);
+  font-size: 13px;
   font-weight: 700;
 }
 
 .merch-note {
   color: var(--muted);
   font-size: 11px;
-  line-height: 1.8;
-  margin-top: 9px;
+  margin-top: 7px;
 }
 
-/* CONNECT */
+/* SUBMISSIONS + CONTACT */
 
-.join {
-  text-align: center;
-  background: linear-gradient(180deg,transparent,rgba(119,83,190,.1),transparent);
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 40px;
 }
 
-.join p {
+.contact-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 35px;
+}
+
+.contact-card h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.contact-card p {
   color: var(--muted);
   font-size: 14px;
-  line-height: 2;
-  max-width: 540px;
-  margin: 0 auto 30px;
+  margin-bottom: 22px;
 }
 
 .social-links {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 28px;
+  gap: 12px 22px;
+  margin-top: 20px;
 }
 
 .social-links a {
-  border: 1px solid var(--line);
-  padding: 14px 22px;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--muted);
-  transition: .3s;
+  color: var(--white);
+  font-size: 12px;
+  transition: .25s ease;
 }
 
 .social-links a:hover {
-  color: white;
-  border-color: var(--purple);
-  background: rgba(155,120,255,.08);
+  color: var(--purple);
 }
 
 /* FOOTER */
 
 footer {
+  padding: 35px 5%;
   border-top: 1px solid var(--line);
-  padding: 35px 0;
-}
-
-.footer-inner {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
-  flex-wrap: wrap;
 }
 
-footer p,
-footer a {
+.footer-brand {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+footer p {
   color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 1px;
+  font-size: 11px;
 }
 
-footer a:hover {
-  color: white;
-}
+/* RESPONSIVE */
 
-/* MOBILE */
-
-@media(max-width:700px) {
-  nav {
-    padding: 17px 0;
-  }
-
-  .nav-inner {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .nav-links {
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .nav-links a {
-    font-size: 8px;
-  }
-
-  .logo {
-    font-size: 13px;
+@media (max-width: 850px) {
+  section {
+    padding: 85px 0;
   }
 
   .about-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
 
   .world-grid,
-  .release-grid,
+  .music-grid,
   .merch-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-nav {
+    padding: 22px 5%;
+    align-items: flex-start;
+  }
+
+  .hero-logo {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .hero-links {
+    gap: 13px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .hero-links a {
+    font-size: 9px;
+    letter-spacing: .8px;
+  }
+
+  .hero-bottom {
+    padding-bottom: 35px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .about-grid {
     grid-template-columns: 1fr;
   }
 
-  section {
-    padding: 85px 0;
+  .about-video {
+    max-width: 100%;
+    justify-self: stretch;
+  }
+
+  .world-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 5px 2px 18px;
+  }
+
+  .world-card {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+    min-height: 270px;
+  }
+
+  .music-grid,
+  .merch-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .music-info,
+  .merch-info {
+    padding: 14px;
+  }
+
+  .music-info h3,
+  .merch-info h3 {
+    font-size: 16px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    padding: 25px;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
   }
 }
 </style>
@@ -495,152 +583,148 @@ footer a:hover {
 
 <body>
 
-<nav>
-  <div class="container nav-inner">
-    <a class="logo" href="#home">ASTROBVBY<span>®</span></a>
+<!-- HERO: clickable links directly over the background -->
+<section class="hero" id="home">
+  <nav class="hero-nav">
+    <a class="hero-logo" href="#home">ASTROBVBY</a>
 
-    <div class="nav-links">
-      <a href="#home">HOME</a>
-      <a href="#about">ABOUT</a>
-      <a href="#worlds">UNIVERSE</a>
-      <a href="#music">MUSIC</a>
-      <a href="#merch">MERCH</a>
-      <a href="#contact">CONNECT</a>
+    <div class="hero-links">
+      <a href="#about">About</a>
+      <a href="#worlds">Explore</a>
+      <a href="#music">Music</a>
+      <a href="#merch">Merch</a>
+      <a href="#submission">Submission</a>
+      <a href="#contact">Contact</a>
     </div>
+  </nav>
+
+  <div class="hero-bottom">
+    <p class="hero-note">Independent creativity · Beyond boundaries</p>
+    <a class="hero-cta" href="#worlds">Explore the universe <span>↗</span></a>
   </div>
-</nav>
+</section>
 
-<!-- HERO -->
-
-<header class="hero" id="home"></header>
-
-<!-- ABOUT + VIDEO -->
-
+<!-- ABOUT -->
 <section id="about">
   <div class="container about-grid">
+    <div class="about-copy">
+      <div class="section-label">The universe</div>
+      <h1 class="section-title">Beyond one identity.<br>Beyond one sound.</h1>
 
-    <div>
-      <div class="section-label">01 / THE UNIVERSE</div>
-      <h2 class="section-title">Beyond one identity.<br>Beyond one sound.</h2>
-
-      <p class="about-copy">
-        ASTROBVBY is an independent creative universe built
-        around music, individuality and artistic expression.
-
-        <br><br>
-
-        From hip-hop and electronic music to visual projects
-        and future creations, every identity has its own world
-        while sharing the same creative vision.
-
-        <br><br>
-
-        Different sounds. Different dimensions.
-        One universe.
+      <p>
+        ASTROBVBY is an independent creative universe built around music,
+        artistic identity, sound and visual culture.
       </p>
+
+      <p>
+        From hip-hop and electronic music to new creative directions,
+        every project has its own world — connected by one vision.
+      </p>
+
+      <a href="#worlds" class="btn">Discover the projects</a>
     </div>
 
     <div class="about-video">
       <video
-        src="./astrobvby-universe.mp4.mp4"
         autoplay
         muted
         loop
         playsinline
-        controls
-        preload="metadata">
-        Your browser does not support HTML video.
+        preload="auto"
+        disablepictureinpicture
+        controlslist="nodownload noplaybackrate noremoteplayback">
+        <source src="./astrobvby-universe.mp4.mp4" type="video/mp4">
       </video>
     </div>
-
   </div>
 </section>
 
-<!-- CREATIVE WORLDS -->
-
-<section id="worlds">
+<!-- EXPLORE WORLDS -->
+<section class="worlds" id="worlds">
   <div class="container">
-    <div class="section-label">02 / THE WORLDS</div>
-    <h2 class="section-title">Explore the universe.</h2>
+    <div class="section-label">Explore the universe</div>
+    <h2 class="section-title">Three worlds.<br><span class="accent">One vision.</span></h2>
+    <p class="section-description">
+      Different identities, different sounds, connected through creativity.
+    </p>
 
     <div class="world-grid">
 
-      <article class="world-card">
-        <div class="world-symbol">✧</div>
-        <small>BRAND . CREATIVE PROJECT
-        </small>
-        <h3>ASTROBVBY</h3>
-        <p>
-          The main artist identity. Creative expression and 
-          a world built around its own sound.
-        </p>
-      </article>
+      <a class="world-card" href="#music">
+        <span class="world-number">01 / MAIN UNIVERSE</span>
+        <div>
+          <h3>ASTROBVBY</h3>
+          <p>
+            The main brand and artistic project. Music, identity,
+            creative direction and the universe behind it all.
+          </p>
+          <div class="world-link">Enter ASTROBVBY ↗</div>
+        </div>
+      </a>
 
-      <article class="world-card">
-        <div class="world-symbol">☼</div>
-        <small>ELECTRONIC · HOUSE</small>
-        <h3>VSTROBVBY</h3>
-        <p>
-          An electronic avenue exploring house music,
-          atmosphere, rhythm and new dimensions.
-        </p>
-      </article>
+      <a class="world-card" href="https://www.youtube.com/@Bvbyshouse/featured" target="_blank" rel="noopener">
+        <span class="world-number">02 / ELECTRONIC AVENUE</span>
+        <div>
+          <h3>VSTROBVBY</h3>
+          <p>
+            An electronic house music avenue exploring atmosphere,
+            rhythm, energy and futuristic sound.
+          </p>
+          <div class="world-link">Explore VSTROBVBY ↗</div>
+        </div>
+      </a>
 
-      <article class="world-card">
-        <div class="world-symbol">◈</div>
-        <small>ARTIST · BEATS</small>
-        <h3>ASTROBVBY</h3>
-        <p>
-          A separate creative Trap/R&B/Pop project with its own identity,
-          sound and visual direction.
-        </p>
-      </article>
+      <a class="world-card" href="https://www.instagram.com/astro2b/" target="_blank" rel="noopener">
+        <span class="world-number">03 / SOUND LAB</span>
+        <div>
+          <h3>ASTRO2B</h3>
+          <p>
+            A hip-hop and sound-making project focused on beats,
+            production, experimentation and new ideas.
+          </p>
+          <div class="world-link">Discover ASTRO2B ↗</div>
+        </div>
+      </a>
 
     </div>
   </div>
 </section>
 
 <!-- MUSIC -->
-
 <section id="music">
   <div class="container">
-    <div class="section-label">03 / MUSIC & PROJECTS</div>
-    <h2 class="section-title">Enter the sound.</h2>
+    <div class="section-label">Sound & releases</div>
+    <h2 class="section-title">Explore the <span class="accent">sound.</span></h2>
+    <p class="section-description">
+      Discover music, electronic releases and production from across the universe.
+    </p>
 
-    <div class="release-grid">
+    <div class="music-grid">
 
-      <article class="release">
-        <a href="https://www.youtube.com/channel/UC50twYKvs8nEsLLTFCoNopQ"
-           target="_blank" rel="noopener noreferrer">
-          <img src="astrobvby-cover.png" alt="ASTROBVBY artwork">
-        </a>
-        <div class="release-info">
-          <small>TRANCE · TOPIC </small>
+      <article class="music-card">
+        <img src="./astrobvby-cover.png" alt="ASTROBVBY music artwork" loading="lazy">
+        <div class="music-info">
           <h3>ASTROBVBY</h3>
-          <p>Music, releases and the artist archive.</p>
+          <p>Main artistic project · Music and releases</p>
+          <a class="text-link" href="https://www.youtube.com/channel/UC50twYKvs8nEsLLTFCoNopQ" target="_blank" rel="noopener">Listen on YouTube ↗</a>
         </div>
       </article>
 
-      <article class="release">
-        <a href="https://www.youtube.com/@Bvbyshouse/featured"
-           target="_blank" rel="noopener noreferrer">
-          <img src="vstrobvby-cover.png" alt="VSTROBVBY artwork">
-        </a>
-        <div class="release-info">
-          <small>ELECTRONIC · HOUSE</small>
+      <article class="music-card">
+        <img src="./vstrobvby-cover.png" alt="VSTROBVBY electronic artwork" loading="lazy">
+        <div class="music-info">
           <h3>VSTROBVBY</h3>
-          <p>Explore electronic music and releases.</p>
+          <p>Electronic · House · Experimental</p>
+          <a class="text-link" href="https://www.youtube.com/@Bvbyshouse/featured" target="_blank" rel="noopener">Listen on YouTube ↗</a>
         </div>
       </article>
 
-      <article class="release">
-        <a href="#contact">
-          <img src="prodbvby-cover.png" alt="ASTRO2B project artwork">
-        </a>
-        <div class="release-info">
-          <small>TRAP . PROJECTS</small>
-          <h3>ASTRO2B</h3>
-          <p>A new dimension is taking shape.</p>
+      <article class="music-card">
+        <img src="./prodbvby-cover.png" alt="Production and beats artwork" loading="lazy">
+        <div class="music-info">
+          <h3>ASTRO2B / Production</h3>
+          <p>Hip-hop · Beats · Sound creation</p>
+          <a class="text-link" href="https://www.youtube.com/@prodbvby" target="_blank" rel="noopener">Explore the beats ↗</a>
         </div>
       </article>
 
@@ -648,94 +732,112 @@ footer a:hover {
   </div>
 </section>
 
-<!-- MERCH -->
-
-<section id="merch">
+<!-- MERCHANDISE -->
+<section class="merch" id="merch">
   <div class="container">
-    <div class="section-label">04 / THE COLLECTION</div>
-    <h2 class="section-title">Wear the universe.</h2>
+    <div class="section-label">Wear the universe</div>
+    <h2 class="section-title">Merchandise<span class="accent">.</span></h2>
+    <p class="section-description">
+      A growing collection of ASTROBVBY-inspired pieces and creative essentials.
+    </p>
 
     <div class="merch-grid">
 
-      <article class="merch-item">
-        <img src="men-zip.png" alt="ASTROBVBY men's zip">
+      <article class="merch-card">
+        <img src="./men-zip.png" alt="Men's zip merchandise" loading="lazy">
         <div class="merch-info">
-          <small>APPAREL · MEN</small>
-          <h3>ASTROBVBY MEN'S ZIP PULLOVER</h3>
+          <h3>Men's Zip</h3>
           <div class="merch-price">$200</div>
-          <p class="merch-note">Part of the upcoming Astrobvby collection.</p>
         </div>
       </article>
 
-      <article class="merch-item">
-        <img src="women-zip.png" alt="ASTROBVBY women's zip">
+      <article class="merch-card">
+        <img src="./women-zip.png" alt="Women's zip merchandise" loading="lazy">
         <div class="merch-info">
-          <small>APPAREL · WOMEN</small>
-          <h3>ASTROBVBY WOMEN'S ZIP PULLOVER</h3>
+          <h3>Women's Zip</h3>
           <div class="merch-price">$200</div>
-          <p class="merch-note">Part of the upcoming Astrobvby collection.</p>
         </div>
       </article>
 
-      <article class="merch-item">
-        <img src="wussup-fam-sticker.png" alt="Wussup Fam sticker">
+      <article class="merch-card">
+        <img src="./men-pullover.png" alt="Men's pullover" loading="lazy">
         <div class="merch-info">
-          <small>ACCESSORIES · STICKER</small>
-          <h3>WUSSUP FAM STICKER</h3>
+          <h3>Men's Pullover</h3>
+          <div class="merch-price">Coming soon</div>
+        </div>
+      </article>
+
+      <article class="merch-card">
+        <img src="./women-pullover.png" alt="Women's pullover" loading="lazy">
+        <div class="merch-info">
+          <h3>Women's Pullover</h3>
+          <div class="merch-price">Coming soon</div>
+        </div>
+      </article>
+
+      <article class="merch-card">
+        <img src="./wussup-fam-sticker.png" alt="Wussup Fam sticker" loading="lazy">
+        <div class="merch-info">
+          <h3>Wussup Fam Sticker</h3>
           <div class="merch-price">$20</div>
-          <p class="merch-note">A little piece of the Astrobvby universe.</p>
         </div>
       </article>
 
     </div>
-
-    <p class="about-copy" style="text-align:center;margin:30px auto 0;">
-      Collection preview · Availability and ordering details coming soon.
-    </p>
   </div>
 </section>
 
-<!-- CONNECT -->
-
-<section class="join" id="contact">
+<!-- SUBMISSION -->
+<section id="submission">
   <div class="container">
-    <div class="section-label">05 / CONNECT</div>
-    <h2 class="section-title">Welcome to the universe.</h2>
-
-    <p>
-      For collaborations, music, creative projects,
-      business inquiries or simply to connect —
-      find Astrobvby across the universe.
+    <div class="section-label">Connect & create</div>
+    <h2 class="section-title">Your sound.<br><span class="accent">Your next move.</span></h2>
+    <p class="section-description">
+      ASTROBVBY is open to creative connections, collaborations,
+      artists and new ideas. If you have something worth sharing,
+      reach out and introduce your work.
     </p>
 
-    <div class="social-links">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Music submissions</h3>
+        <p>
+          Artists, producers and creatives: share your work and
+          introduce your sound through our social channels.
+        </p>
+        <a class="btn" href="https://www.instagram.com/Astrobvby/" target="_blank" rel="noopener">
+          Submit through Instagram
+        </a>
+      </div>
 
-      <a href="https://www.instagram.com/astro2b/"
-         target="_blank" rel="noopener noreferrer">
-        INSTAGRAM ↗
-      </a>
+      <div class="contact-card" id="contact">
+        <h3>Contact</h3>
+        <p>
+          For collaborations, business inquiries, partnerships
+          and other opportunities, connect with ASTROBVBY.
+        </p>
 
-      <a href="https://www.facebook.com/Astrobvby/"
-         target="_blank" rel="noopener noreferrer">
-        FACEBOOK ↗
-      </a>
-
-      <a href="https://x.com/AstroBvby1"
-         target="_blank" rel="noopener noreferrer">
-        X / TWITTER ↗
-      </a>
-
+        <div class="social-links">
+          <a href="https://www.instagram.com/Astrobvby/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="https://www.facebook.com/Astrobvby/" target="_blank" rel="noopener">Facebook ↗</a>
+          <a href="https://x.com/AstroBvby1" target="_blank" rel="noopener">X ↗</a>
+          <a href="https://www.instagram.com/astro2b/" target="_blank" rel="noopener">ASTRO2B ↗</a>
+          <a href="https://www.youtube.com/@Bvbyshouse/featured" target="_blank" rel="noopener">VSTROBVBY YouTube ↗</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="container footer-inner">
-    <p>© 2026 ASTROBVBY</p>
-    <p>DIFFERENT WORLDS. ONE UNIVERSE.</p>
-    <a href="#home">BACK TO TOP ↑</a>
-  </div>
+  <a class="footer-brand" href="#home">ASTROBVBY</a>
+  <p>Independent creativity. Beyond one identity. Beyond one sound.</p>
+  <p>© <span id="year"></span> ASTROBVBY</p>
 </footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
