@@ -17,7 +17,6 @@
 :root {
   --bg: #08070d;
   --panel: #111019;
-  --panel-light: #171522;
   --white: #f5f3fa;
   --muted: #92909e;
   --purple: #9b78ff;
@@ -49,21 +48,13 @@ a {
   text-decoration: none;
 }
 
-img, video {
-  max-width: 100%;
-}
-
-button, a {
-  -webkit-tap-highlight-color: transparent;
-}
-
 .container {
   width: min(1160px, 90%);
   margin: auto;
 }
 
 section {
-  padding: 110px 0;
+  padding: 105px 0;
 }
 
 .section-label {
@@ -113,7 +104,7 @@ section {
   transform: translateY(-3px);
 }
 
-/* HERO — navigation lives over the hero image */
+/* HERO */
 
 .hero {
   min-height: 100svh;
@@ -242,67 +233,6 @@ section {
   pointer-events: none;
 }
 
-/* EXPLORE WORLDS — horizontal cards */
-
-.worlds {
-  background: linear-gradient(180deg, #0b0911, #100d18 50%, #08070d);
-}
-
-.world-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-  margin-top: 45px;
-}
-
-.world-card {
-  min-width: 0;
-  position: relative;
-  overflow: hidden;
-  padding: 30px;
-  min-height: 290px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: linear-gradient(145deg, #191522, #0e0c14);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: .35s ease;
-}
-
-.world-card:hover {
-  transform: translateY(-7px);
-  border-color: rgba(155,120,255,.6);
-  background: linear-gradient(145deg, #211a31, #100d18);
-}
-
-.world-number {
-  color: var(--purple);
-  font-size: 11px;
-  letter-spacing: 3px;
-}
-
-.world-card h3 {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: clamp(22px, 2.3vw, 30px);
-  letter-spacing: -1px;
-  margin: 20px 0 10px;
-}
-
-.world-card p {
-  color: var(--muted);
-  font-size: 13px;
-  max-width: 300px;
-}
-
-.world-link {
-  margin-top: 28px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--purple);
-}
-
 /* MUSIC */
 
 .music-grid {
@@ -356,20 +286,28 @@ section {
   text-transform: uppercase;
 }
 
-/* MERCH */
+/* THE COLLECTION */
 
-.merch {
-  background: #0c0a12;
+.collection {
+  background: linear-gradient(180deg, #0c0a12, #100d18 55%, #08070d);
 }
 
-.merch-grid {
+.collection-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.collection-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
   margin-top: 42px;
 }
 
-.merch-card {
+.collection-card {
+  min-width: 0;
   overflow: hidden;
   border-radius: var(--radius);
   border: 1px solid var(--line);
@@ -377,48 +315,102 @@ section {
   transition: .3s ease;
 }
 
-.merch-card:hover {
+.collection-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(155,120,255,.5);
+  border-color: rgba(155,120,255,.55);
 }
 
-.merch-card img {
-  display: block;
+.product-image {
   width: 100%;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
-  background: #171420;
+  padding: 14px;
+  background: radial-gradient(circle, #211c2d, #111019 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.merch-info {
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform .4s ease;
+}
+
+.collection-card:hover .product-image img {
+  transform: scale(1.045);
+}
+
+.product-info {
   padding: 20px;
+  border-top: 1px solid var(--line);
 }
 
-.merch-info h3 {
+.product-category {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.product-info h3 {
   font-family: "Space Grotesk", sans-serif;
   font-size: 19px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
-.merch-price {
+.product-price {
   color: var(--purple);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
 }
 
-.merch-note {
-  color: var(--muted);
-  font-size: 11px;
-  margin-top: 7px;
+/* COLLABORATIONS */
+
+.collaboration {
+  background: #0b0911;
 }
 
-/* SUBMISSIONS + CONTACT */
+.collaboration-card {
+  margin-top: 38px;
+  padding: 45px;
+  border: 1px solid rgba(155,120,255,.35);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #191426, #100e17);
+}
+
+.collaboration-card h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(25px, 3vw, 36px);
+  margin-bottom: 15px;
+}
+
+.collaboration-card p {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 680px;
+  margin-bottom: 20px;
+}
+
+.paid-notice {
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+/* CONTACT */
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 25px;
-  margin-top: 40px;
+  margin-top: 38px;
 }
 
 .contact-card {
@@ -443,7 +435,7 @@ section {
 .social-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 22px;
+  gap: 15px 22px;
   margin-top: 20px;
 }
 
@@ -455,6 +447,12 @@ section {
 
 .social-links a:hover {
   color: var(--purple);
+}
+
+.email-link {
+  color: var(--purple);
+  font-size: 14px;
+  overflow-wrap: anywhere;
 }
 
 /* FOOTER */
@@ -492,9 +490,8 @@ footer p {
     gap: 30px;
   }
 
-  .world-grid,
   .music-grid,
-  .merch-grid {
+  .collection-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -536,33 +533,28 @@ footer p {
     justify-self: stretch;
   }
 
-  .world-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 5px 2px 18px;
-  }
-
-  .world-card {
-    flex: 0 0 82%;
-    scroll-snap-align: start;
-    min-height: 270px;
-  }
-
   .music-grid,
-  .merch-grid {
+  .collection-grid {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
 
   .music-info,
-  .merch-info {
+  .product-info {
     padding: 14px;
   }
 
   .music-info h3,
-  .merch-info h3 {
+  .product-info h3 {
     font-size: 16px;
+  }
+
+  .collection-heading {
+    display: block;
+  }
+
+  .collaboration-card {
+    padding: 27px;
   }
 
   .contact-grid {
@@ -583,16 +575,15 @@ footer p {
 
 <body>
 
-<!-- HERO: clickable links directly over the background -->
+<!-- HERO -->
 <section class="hero" id="home">
   <nav class="hero-nav">
     <a class="hero-logo" href="#home">ASTROBVBY</a>
 
     <div class="hero-links">
       <a href="#about">About</a>
-      <a href="#worlds">Explore</a>
       <a href="#music">Music</a>
-      <a href="#merch">Merch</a>
+      <a href="#collection">Collection</a>
       <a href="#submission">Submission</a>
       <a href="#contact">Contact</a>
     </div>
@@ -600,7 +591,7 @@ footer p {
 
   <div class="hero-bottom">
     <p class="hero-note">Independent creativity · Beyond boundaries</p>
-    <a class="hero-cta" href="#worlds">Explore the universe <span>↗</span></a>
+    <a class="hero-cta" href="#music">Explore the universe <span>↗</span></a>
   </div>
 </section>
 
@@ -612,8 +603,8 @@ footer p {
       <h1 class="section-title">Beyond one identity.<br>Beyond one sound.</h1>
 
       <p>
-        ASTROBVBY is an independent creative universe built around music,
-        artistic identity, sound and visual culture.
+        ASTROBVBY is an independent creative brand and artistic project
+        built around music, identity, sound and visual culture.
       </p>
 
       <p>
@@ -621,7 +612,7 @@ footer p {
         every project has its own world — connected by one vision.
       </p>
 
-      <a href="#worlds" class="btn">Discover the projects</a>
+      <a href="#music" class="btn">Discover the sound</a>
     </div>
 
     <div class="about-video">
@@ -639,73 +630,23 @@ footer p {
   </div>
 </section>
 
-<!-- EXPLORE WORLDS -->
-<section class="worlds" id="worlds">
-  <div class="container">
-    <div class="section-label">Explore the universe</div>
-    <h2 class="section-title">Three worlds.<br><span class="accent">One vision.</span></h2>
-    <p class="section-description">
-      Different identities, different sounds, connected through creativity.
-    </p>
-
-    <div class="world-grid">
-
-      <a class="world-card" href="#music">
-        <span class="world-number">01 / MAIN UNIVERSE</span>
-        <div>
-          <h3>ASTROBVBY</h3>
-          <p>
-            The main brand and artistic project. Music, identity,
-            creative direction and the universe behind it all.
-          </p>
-          <div class="world-link">Enter ASTROBVBY ↗</div>
-        </div>
-      </a>
-
-      <a class="world-card" href="https://www.youtube.com/@Bvbyshouse/featured" target="_blank" rel="noopener">
-        <span class="world-number">02 / ELECTRONIC AVENUE</span>
-        <div>
-          <h3>VSTROBVBY</h3>
-          <p>
-            An electronic house music avenue exploring atmosphere,
-            rhythm, energy and futuristic sound.
-          </p>
-          <div class="world-link">Explore VSTROBVBY ↗</div>
-        </div>
-      </a>
-
-      <a class="world-card" href="https://www.instagram.com/astro2b/" target="_blank" rel="noopener">
-        <span class="world-number">03 / SOUND LAB</span>
-        <div>
-          <h3>ASTRO2B</h3>
-          <p>
-            A hip-hop and sound-making project focused on beats,
-            production, experimentation and new ideas.
-          </p>
-          <div class="world-link">Discover ASTRO2B ↗</div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
 <!-- MUSIC -->
 <section id="music">
   <div class="container">
     <div class="section-label">Sound & releases</div>
     <h2 class="section-title">Explore the <span class="accent">sound.</span></h2>
     <p class="section-description">
-      Discover music, electronic releases and production from across the universe.
+      Three creative directions. One universe. Discover the music,
+      electronic releases and production behind each identity.
     </p>
 
     <div class="music-grid">
 
       <article class="music-card">
-        <img src="./astrobvby-cover.png" alt="ASTROBVBY music artwork" loading="lazy">
+        <img src="./astrobvby-cover.png" alt="ASTROBVBY artwork" loading="lazy">
         <div class="music-info">
           <h3>ASTROBVBY</h3>
-          <p>Main artistic project · Music and releases</p>
+          <p>Main brand and artistic project · Music and creative identity</p>
           <a class="text-link" href="https://www.youtube.com/channel/UC50twYKvs8nEsLLTFCoNopQ" target="_blank" rel="noopener">Listen on YouTube ↗</a>
         </div>
       </article>
@@ -714,17 +655,17 @@ footer p {
         <img src="./vstrobvby-cover.png" alt="VSTROBVBY electronic artwork" loading="lazy">
         <div class="music-info">
           <h3>VSTROBVBY</h3>
-          <p>Electronic · House · Experimental</p>
+          <p>Electronic house music · Atmosphere · Rhythm</p>
           <a class="text-link" href="https://www.youtube.com/@Bvbyshouse/featured" target="_blank" rel="noopener">Listen on YouTube ↗</a>
         </div>
       </article>
 
       <article class="music-card">
-        <img src="./prodbvby-cover.png" alt="Production and beats artwork" loading="lazy">
+        <img src="./prodbvby-cover.png" alt="ASTRO2B production artwork" loading="lazy">
         <div class="music-info">
-          <h3>ASTRO2B / Production</h3>
-          <p>Hip-hop · Beats · Sound creation</p>
-          <a class="text-link" href="https://www.youtube.com/@prodbvby" target="_blank" rel="noopener">Explore the beats ↗</a>
+          <h3>ASTRO2B</h3>
+          <p>Hip-hop · Beatmaking · Sound creation</p>
+          <a class="text-link" href="https://www.instagram.com/astro2b/" target="_blank" rel="noopener">Explore ASTRO2B ↗</a>
         </div>
       </article>
 
@@ -732,54 +673,73 @@ footer p {
   </div>
 </section>
 
-<!-- MERCHANDISE -->
-<section class="merch" id="merch">
+<!-- THE COLLECTION -->
+<section class="collection" id="collection">
   <div class="container">
-    <div class="section-label">Wear the universe</div>
-    <h2 class="section-title">Merchandise<span class="accent">.</span></h2>
-    <p class="section-description">
-      A growing collection of Astrobvby-inspired pieces and creative essentials.
-    </p>
+    <div class="collection-heading">
+      <div>
+        <div class="section-label">Wear the universe</div>
+        <h2 class="section-title">The <span class="accent">Collection.</span></h2>
+        <p class="section-description">
+          Selected pieces from the ASTROBVBY creative universe.
+        </p>
+      </div>
+    </div>
 
-    <div class="merch-grid">
+    <div class="collection-grid">
 
-      <article class="merch-card">
-        <img src="./men-zip.png" alt="Men's zip merchandise" loading="lazy">
-        <div class="merch-info">
+      <article class="collection-card">
+        <div class="product-image">
+          <img src="./men-zip.png" alt="Men's zip" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Apparel · Men</div>
           <h3>Men's Zip</h3>
-          <div class="merch-price">$200</div>
+          <div class="product-price">$200+</div>
         </div>
       </article>
 
-      <article class="merch-card">
-        <img src="./women-zip.png" alt="Women's zip merchandise" loading="lazy">
-        <div class="merch-info">
+      <article class="collection-card">
+        <div class="product-image">
+          <img src="./women-zip.png" alt="Women's zip" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Apparel · Women</div>
           <h3>Women's Zip</h3>
-          <div class="merch-price">$200</div>
+          <div class="product-price">$200+</div>
         </div>
       </article>
 
-      <article class="merch-card">
-        <img src="./men-pullover.png" alt="Men's pullover" loading="lazy">
-        <div class="merch-info">
+      <article class="collection-card">
+        <div class="product-image">
+          <img src="./men-pullover.png" alt="Men's pullover" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Apparel · Men</div>
           <h3>Men's Pullover</h3>
-          <div class="merch-price">Coming soon</div>
+          <div class="product-price">$200+</div>
         </div>
       </article>
 
-      <article class="merch-card">
-        <img src="./women-pullover.png" alt="Women's pullover" loading="lazy">
-        <div class="merch-info">
+      <article class="collection-card">
+        <div class="product-image">
+          <img src="./women-pullover.png" alt="Women's pullover" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Apparel · Women</div>
           <h3>Women's Pullover</h3>
-          <div class="merch-price">Coming soon</div>
+          <div class="product-price">$200+</div>
         </div>
       </article>
 
-      <article class="merch-card">
-        <img src="./wussup-fam-sticker.png" alt="Wussup Fam sticker" loading="lazy">
-        <div class="merch-info">
+      <article class="collection-card">
+        <div class="product-image">
+          <img src="./wussup-fam-sticker.png" alt="Wussup Fam sticker" loading="lazy">
+        </div>
+        <div class="product-info">
+          <div class="product-category">Accessories</div>
           <h3>Wussup Fam Sticker</h3>
-          <div class="merch-price">$20</div>
+          <div class="product-price">$20</div>
         </div>
       </article>
 
@@ -787,44 +747,66 @@ footer p {
   </div>
 </section>
 
-<!-- SUBMISSION -->
-<section id="submission">
+<!-- COLLABORATIONS / SUBMISSIONS -->
+<section class="collaboration" id="submission">
   <div class="container">
-    <div class="section-label">Connect & create</div>
-    <h2 class="section-title">Your sound.<br><span class="accent">Your next move.</span></h2>
+    <div class="section-label">Work with ASTROBVBY</div>
+    <h2 class="section-title">Let's create <span class="accent">something.</span></h2>
+
+    <div class="collaboration-card">
+      <h3>Music collaborations & production</h3>
+      <p>
+        Looking for beats, production, sound creation or a music collaboration?
+        ASTROBVBY welcomes serious creative inquiries from artists and musicians.
+      </p>
+
+      <div class="paid-notice">
+        Paid collaborations only · Rates available upon request
+      </div>
+
+      <p>
+        All collaboration and production services are paid.
+        Please contact us first to discuss your project, requirements
+        and the applicable pricing before starting.
+      </p>
+
+      <a class="btn" href="mailto:astrob.pro@gmail.com?subject=ASTROBVBY%20Collaboration%20Inquiry">
+        Contact for collaborations
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get in touch</div>
+    <h2 class="section-title">Stay <span class="accent">connected.</span></h2>
     <p class="section-description">
-      ASTROBVBY is open to creative connections, collaborations,
-      artists and new ideas. If you have something worth sharing,
-      reach out and introduce your work.
+      For business inquiries, partnerships and general contact.
     </p>
 
     <div class="contact-grid">
-      <div class="contact-card">
-        <h3>Music submissions</h3>
-        <p>
-          Artists, producers and creatives: share your work and
-          introduce your sound through our social channels.
-        </p>
-        <a class="btn" href="https://www.instagram.com/Astrobvby/" target="_blank" rel="noopener">
-          Submit through Instagram
-        </a>
-      </div>
 
-      <div class="contact-card" id="contact">
-        <h3>Contact</h3>
-        <p>
-          For collaborations, business inquiries, partnerships
-          and other opportunities, connect with ASTROBVBY.
-        </p>
+      <div class="contact-card">
+        <h3>Social platforms</h3>
+        <p>Follow ASTROBVBY and stay connected with the universe.</p>
 
         <div class="social-links">
           <a href="https://www.instagram.com/Astrobvby/" target="_blank" rel="noopener">Instagram ↗</a>
           <a href="https://www.facebook.com/Astrobvby/" target="_blank" rel="noopener">Facebook ↗</a>
           <a href="https://x.com/AstroBvby1" target="_blank" rel="noopener">X ↗</a>
-          <a href="https://www.instagram.com/astro2b/" target="_blank" rel="noopener">ASTRO2B ↗</a>
-          <a href="https://www.youtube.com/@Bvbyshouse/featured" target="_blank" rel="noopener">VSTROBVBY YouTube ↗</a>
         </div>
       </div>
+
+      <div class="contact-card">
+        <h3>Business inquiries</h3>
+        <p>For collaborations, partnerships and other inquiries, send an email.</p>
+        <a class="email-link" href="mailto:astrob.pro@gmail.com">
+          astrob.pro@gmail.com ↗
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
