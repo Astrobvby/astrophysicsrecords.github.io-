@@ -655,6 +655,76 @@ footer p {
     transform-origin: top left;
   }
 }
+  
+/* ASTROBVBY UNIVERSE — MOBILE FIX */
+
+@media screen and (max-width: 768px) {
+
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  /* HERO BACKGROUND */
+  .hero {
+    min-height: 100svh;
+    height: auto;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  /* HERO CONTENT */
+  .hero-content {
+    width: 90%;
+    max-width: 100%;
+    margin: auto;
+    padding: 100px 0 60px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 10vw, 64px);
+    line-height: 1.05;
+    overflow-wrap: break-word;
+  }
+
+  /* GENERAL SECTIONS */
+  section {
+    padding: 60px 6%;
+  }
+
+  /* COLLECTIONS AND MERCH */
+  .collection-grid,
+  .merch-grid,
+  .music-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* VIDEO */
+  video {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  /* NAVIGATION */
+  nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+}
+
 </style>
 </head>
 
