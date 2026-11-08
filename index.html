@@ -12,7 +12,21 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+.about-video {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+}
 
+.about-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
 <style>
 :root {
   --bg: #08070d;
@@ -182,22 +196,19 @@ section {
   max-width: 620px;
 }
 
-.about-video {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: #111019;
-  box-shadow: 0 20px 70px rgba(0,0,0,.35);
-}
-
-.about-video video {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
+<div class="about-video">
+  <video
+    src="./astrobvby-universe.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    disablepictureinpicture
+    controlslist="nodownload noplaybackrate noremoteplayback">
+  </video>
+</div>
+  
 /* CREATIVE WORLDS */
 
 .world-grid {
